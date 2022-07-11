@@ -2,7 +2,7 @@
 
 # Develop Express app on **HTTPS** protocol on localhost
 
-<div style="display: flex; justify-content: center; gap: 4px;">
+<div style="width: 100%; display: flex; justify-content: center; gap: 4px;">
 <img
 	width= "40%"
 	src='https://github.com/JavaScriptForEverything/https-express-app/blob/master/public/https-express-1.png'
