@@ -1,0 +1,21 @@
+{
+  "name": "https-express",
+  "version": "1.0.0",
+  "main": "server.js",
+  "license": "MIT",
+  "scripts": {
+    "create-ca": "mkdir ssl && cd ssl && mkcert create-ca",
+    "create-cert": "cd ssl && mkcert create-cert ",
+
+    "dev": "nodemon .",
+    "start": "NODE_ENV=production node ."
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "mkcert": "^1.5.0",
+    "nodemon": "^2.0.19"
+  }
+}
