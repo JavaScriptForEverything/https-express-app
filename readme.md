@@ -3,7 +3,21 @@
 # Develop Express app on **HTTPS** protocol
 
 
-### Step-1: Clone this repository
+### Clone this repository
+
+	$ yarn install 				: install all dependencies & devDependencies
+	$ yarn create-ca 			: Generate Certificate Authority files
+	$ yarn create-cert 			: Generate Local User Certificate files
+	$ yarn dev 				: To Run as development mode
+
+	$ yarn start 				: To Run as production  mode
+
+
+### Check in Browser
+
+	. https://localhost:8080 		: use **HTTPS**, instead of **HTTP**
+
+
 
 ###### package.json
 
@@ -30,21 +44,38 @@
 	}
 
 
-### Step-2: Download and Generate require files
+###### /app.js
 
-###### Run every command line by line
+	const express = require('express')
 
-	$ yarn install 				: install all dependencies & devDependencies
-	$ yarn create-ca 			: Generate Certificate Authority files
-	$ yarn create-cert 			: Generate Local User Certificate files
-	$ yarn dev 				: To Run as development mode
+	const app = express()
 
-	$ yarn start 				: To Run as production  mode
+	app.use(express.json('200k'))
+
+	app.get('/', (req, res, next) => {
+		res.status(200).json({ status: 'success', message: 'HTTPS access' })
+	})
+
+	module.exports = app
 
 
-### Step-3: Check in Browser
+###### /server.js
 
-	. https://localhost:8080 		: use **HTTPS**, instead of **HTTP**
+	require('dotenv').config()
+	const https = require('https')
+	const fs = require('fs')
+	const app = require('./app')
+
+
+	const PORT = process.env.PORT || 4430  		// 443 => 4430
+	const options = {
+		key: fs.readFileSync('./ssl/cert.key'),
+		cert: fs.readFileSync('./ssl/cert.crt'),
+	}
+
+	const server = https.createServer(options, app)
+
+	server.listen(PORT, () => console.log(`Server is running on 'HTTPS' protocol on port: ${PORT}`) )
 
 
 
