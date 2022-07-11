@@ -1,6 +1,6 @@
 
 
-# Develop Express app on **HTTPS** protocol
+# Develop Express app on **HTTPS** protocol on localhost
 
 
 ### Clone this repository
@@ -79,6 +79,9 @@
 
 
 
+###### Trust in Browser: (For Firefox):
+	. Preferences -> Privacy & Security -> View Certificates
+	. choose (Authorities) Tab > import > ca.crt
 
 
 
