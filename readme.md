@@ -4,11 +4,11 @@
 
 <div style="width: 100%; display: flex; justify-content: center; gap: 4px;">
 <img
-	width= "40%"
+	style="flex: .5"
 	src='https://github.com/JavaScriptForEverything/https-express-app/blob/master/public/https-express-1.png'
 />
 <img
-	width= "40%"
+	style="flex: .5"
 	src='https://github.com/JavaScriptForEverything/https-express-app/blob/master/public/https-express-2.png'
 />
 <div>
